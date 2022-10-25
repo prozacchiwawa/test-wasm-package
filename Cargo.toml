@@ -1,0 +1,21 @@
+[package]
+name = "test_wasm"
+version = "0.1.0"
+edition = "2021"
+authors = ["Art Yerkes <art.yerkes@gmail.com>"]
+repository = "https://github.com/prozacchiwawa/test-wasm-package"
+description = "Simple smoke test for wasm package publishing"
+license = "MIT"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "test_wasm"
+crate-type = ["cdylib", "rlib"]
+
+[target.'cfg(target_family="wasm")'.dependencies]
+wasm-bindgen = { version = "0.2.80", features = ["serde-serialize"] }
+wasm-bindgen-test = "0.3.25"
+js-sys = "0.3.58"
+getrandom = { version = "0.2", features = ["js"] }
+
+[dependencies]
